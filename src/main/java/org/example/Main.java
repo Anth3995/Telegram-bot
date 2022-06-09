@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Main {
-    private static final Logger log = LoggerFactory.getLogger(Main.class);
+    private static final Logger LOG = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
         Injector injector = Guice.createInjector(new ApplicationModule());
@@ -20,7 +20,8 @@ public class Main {
                 Thread.sleep(1000L);
             }
         } catch (Exception e) {
-            log.error("Bot is crashed: {}", e.getMessage(), e);
+            LOG.error("Bot is crashed: {}", e.getMessage(), e);
+            Thread.currentThread().interrupt();
             System.exit(1);
         }
     }

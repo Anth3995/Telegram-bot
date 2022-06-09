@@ -1,11 +1,13 @@
 package org.example.dto;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public record UserDto(
-        @SerializedName("id")
+        @JsonProperty("id")
         Integer id,
-        @SerializedName("username")
+        @JsonProperty("username")
         String username
 ) {
 }
